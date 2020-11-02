@@ -4,9 +4,10 @@ from pydantic import ValidationError
 
 from scripts.select_venue import main
 
+
 class test_select_venue(unittest.TestCase):
     def test_main_minimal(self):
-        result = main('./src/tests/data/users.json','./src/tests/data/venues.json')
+        result = main('./src/tests/data/users.json', './src/tests/data/venues.json')
         expected = {
             "places_to_visit": [
                 "The Cambridge"
@@ -22,10 +23,10 @@ class test_select_venue(unittest.TestCase):
             ]
         }
 
-        self.assertEqual(result,expected)
-    
+        self.assertEqual(result, expected)
+
     def test_main_full(self):
-        result = main('./data/users.json','./data/venues.json')
+        result = main('./data/users.json', './data/venues.json')
         expected = {
             "places_to_visit": [
                 "Spice of life",
@@ -90,7 +91,10 @@ class test_select_venue(unittest.TestCase):
             ]
         }
 
-        self.assertEqual(result,expected)
+        self.assertEqual(result, expected)
 
     def test_main_malformed_data(self):
-        self.assertRaises(ValidationError, main, './src/tests/data/malformed_users.json','./src/tests/data/malformed_venues.json')
+        self.assertRaises(ValidationError,
+                          main,
+                          './src/tests/data/malformed_users.json',
+                          './src/tests/data/malformed_venues.json')

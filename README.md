@@ -30,15 +30,12 @@ The tests can be run using pytest with the command
 ```bash
 pytest
 ```
-from the root directory
-# Repo Layout
-
+from the root directory.
+and for coverage data
+```bash
+pytest -v --cov=src/scripts --cov-report term-missing
 ```
-.venv
-data
-tests
-  |--test_select_venue.py
-  |--test_models.py
-select_venue.py
-models.py
+For linting use
+```bash
+flake8 ./src --count --max-complexity=10 --max-line-length=127 --statistics
 ```

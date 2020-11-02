@@ -1,7 +1,6 @@
 from pydantic import BaseModel, validator, Field
 from typing import List
 
-import json
 
 class InputUser(BaseModel):
     name: str = Field(..., description='Name of the user')
@@ -20,15 +19,18 @@ class InputUser(BaseModel):
             raise ValueError('User must specify at least one drink')
         return v
 
+
 class User(BaseModel):
     name: str = None
     wont_eat: dict = Field(..., description='Foods that a user wont eat')
     drinks: dict = Field(..., description='Drinks that a user will drink')
 
+
 class Venue(BaseModel):
     name: str = None
     food: dict = Field(..., description='Foods available at the venue')
     drinks: dict = Field(..., description='Drinks available at the venue')
+
 
 class PlaceToAvoid(BaseModel):
     name: str = None
@@ -38,6 +40,7 @@ class PlaceToAvoid(BaseModel):
     def add_reason(self, reason: str):
         self.reasons.append(reason)
 
+
 class Result():
     def __init__(self):
         self.places_to_visit = {}
@@ -46,15 +49,16 @@ class Result():
     def to_dict(self):
         return {
             "places_to_visit": list(self.places_to_visit.keys()),
-            "places_to_avoid": [{"name": place_name, "reason": self.places_to_avoid[place_name]} for place_name in self.places_to_avoid.keys()]
+            "places_to_avoid": [{"name": place_name, "reason": self.places_to_avoid[place_name]}
+                                for place_name in self.places_to_avoid.keys()]
         }
 
     def add_place_to_visit(self, place_name: str):
-        if not place_name in self.places_to_visit.keys():
+        if place_name not in self.places_to_visit.keys():
             self.places_to_visit[place_name] = None
 
     def add_places_to_avoid(self, place: PlaceToAvoid):
-        if not place.name in self.places_to_avoid.keys():
+        if place.name not in self.places_to_avoid.keys():
             self.places_to_avoid[place.name] = place.reasons
         else:
             self.places_to_avoid[place.name] += place.reasons
