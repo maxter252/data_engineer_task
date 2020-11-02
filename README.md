@@ -21,9 +21,9 @@ Then install the requirements
 pip install requirements.txt
 ```
 
-Now run the pipeline. 
+Now run the code. 
 ```bash
-python main.py
+python src/scripts/select_venue.py
 ```
 
 The tests can be run using pytest with the command

@@ -5,7 +5,7 @@ from typing import List, Tuple
 from scripts.models import User, Venue, Result, PlaceToAvoid, InputUser
 
 
-def prnt(item):
+def print_json(item):
     print(json.dumps(item, indent=4))
 
 
@@ -104,7 +104,7 @@ def main(users_json: str = './data/users.json', venues_json: str = './data/venue
     users, venues = get_data(users_json, venues_json)
     users, venues = transform_user_data(users), transform_venue_data(venues)
     result = search_compatible_locations(venues, users)
-    prnt(result.to_dict())
+    print_json(result.to_dict())
     return result.to_dict()
 
 
