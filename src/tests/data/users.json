@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Karol Drewno",
+        "wont_eat": ["Bread", "Pasta"],
+        "drinks": ["Vodka", "Gin", "Whisky", "Rum"]
+    },
+    {
+        "name": "Rosie Curran",
+        "wont_eat": ["Mexican"],
+        "drinks": ["Vodka", "Gin", "whisky", "Rum", "Cider", "Beer", "Soft drinks"]
+    }
+]

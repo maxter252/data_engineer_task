@@ -1,0 +1,12 @@
+[
+    {
+        "name": "El Cantina",
+        "food": ["Mexican"],
+        "drinks": ["Soft drinks", "Tequila", "Beer"]
+    },
+    {
+        "name": "The Cambridge",
+        "food": ["Eggs", "Meat", "Fish", "Pasta", "Dairy"],
+        "drinks": ["Vodka", "Gin", "Cider", "Beer", "Soft drinks"]
+    }
+]
